@@ -12,14 +12,17 @@ package lc1twosum
 //     -109 <= target <= 109
 //     Only one valid answer exists.
 func TwoSum(nums []int, target int) []int {
-	for xi, x := range nums {
-		for yi, y := range nums {
-			if xi != yi {
-				if (x + y) == target {
-					return []int{xi, yi}
-				}
-			}
+	// Map integer -> index
+	seen := make(map[int]int)
+
+	for index1, num1 := range nums {
+		need := target - num1
+
+		if num2, ok := seen[need]; ok {
+			return []int{num2, index1}
 		}
+
+		seen[num1] = index1
 	}
 
 	return []int{}
