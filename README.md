@@ -7,6 +7,7 @@ Go repository for LeetCode challenges.
 |------|------------------|-------------|
 | 1    | Two Sum          | Complete    |
 | 2    | Add Two Numbers  | Complete    |
+| 4    | Median of Two Sorted Arrays  | Complete    |
 | 7    | Reverse Integer  | Complete    |
 | 8    | String to Integer| Complete    |
 | 12   | Integer to Roman | In Progress |

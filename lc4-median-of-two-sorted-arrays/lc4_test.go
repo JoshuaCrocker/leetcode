@@ -1,7 +1,6 @@
 package lc4medianoftwosortedarrays_test
 
 import (
-	"reflect"
 	"testing"
 
 	lc4 "github.com/JoshuaCrocker/leetcode/lc4-median-of-two-sorted-arrays"
@@ -104,72 +103,5 @@ func TestFindMedianSortedArraysExample7(t *testing.T) {
 
 	if lc4.FindMedianSortedArrays(input1, input2) != expected {
 		t.Errorf("got %f, expected %f", lc4.FindMedianSortedArrays(input1, input2), expected)
-	}
-}
-
-func TestFindMedian1(t *testing.T) {
-	input := []int{1, 2, 3}
-	expected := 2.0
-
-	if lc4.FindMedian(input) != expected {
-		t.Errorf("got %f, expected %f", lc4.FindMedian(input), expected)
-	}
-}
-
-func TestFindMedian2(t *testing.T) {
-	input := []int{1, 5}
-	expected := 3.0
-
-	if lc4.FindMedian(input) != expected {
-		t.Errorf("got %f, expected %f", lc4.FindMedian(input), expected)
-	}
-}
-
-func TestFindMedian3(t *testing.T) {
-	input := []int{}
-	expected := 0.0
-
-	if lc4.FindMedian(input) != expected {
-		t.Errorf("got %f, expected %f", lc4.FindMedian(input), expected)
-	}
-}
-
-func TestCombineArrays1(t *testing.T) {
-	input1 := []int{1, 3}
-	input2 := []int{2, 7}
-	expected := []int{1, 2, 3, 7}
-
-	if !reflect.DeepEqual(lc4.CombineArrays(input1, input2), expected) {
-		t.Errorf("got %v, expected %v", lc4.CombineArrays(input1, input2), expected)
-	}
-}
-
-func TestCombineArrays2(t *testing.T) {
-	input1 := []int{}
-	input2 := []int{2, 7}
-	expected := []int{2, 7}
-
-	if !reflect.DeepEqual(lc4.CombineArrays(input1, input2), expected) {
-		t.Errorf("got %v, expected %v", lc4.CombineArrays(input1, input2), expected)
-	}
-}
-
-func TestCombineArrays3(t *testing.T) {
-	input1 := []int{1, 3}
-	input2 := []int{}
-	expected := []int{1, 3}
-
-	if !reflect.DeepEqual(lc4.CombineArrays(input1, input2), expected) {
-		t.Errorf("got %v, expected %v", lc4.CombineArrays(input1, input2), expected)
-	}
-}
-
-func TestCombineArrays4(t *testing.T) {
-	input1 := []int{1, 2}
-	input2 := []int{-1, 3}
-	expected := []int{-1, 1, 2, 3}
-
-	if !reflect.DeepEqual(lc4.CombineArrays(input1, input2), expected) {
-		t.Errorf("got %v, expected %v", lc4.CombineArrays(input1, input2), expected)
 	}
 }

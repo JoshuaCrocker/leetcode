@@ -9,63 +9,76 @@ import (
 //
 // The overall run time complexity should be O(log (m+n)).
 func FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+	input := []int{}
+	input = append(input, nums1...)
+	input = append(input, nums2...)
+
 	log.Println("")
-	log.Println("--- START ---")
+	log.Printf("input=%v", input)
 
-	if len(nums1) == 1 && len(nums2) == 0 {
-		return float64(nums1[0])
+	sorted := MergeSort(input)
+	log.Printf("sorted=%v", sorted)
+
+	length := len(sorted)
+
+	if length%2 == 0 {
+		min := (length / 2) - 1
+		max := length / 2
+		log.Printf("min=%v", min)
+		log.Printf("max=%v", max)
+
+		return (float64(sorted[min]) + float64(sorted[max])) / 2
 	}
 
-	if len(nums2) == 1 && len(nums1) == 0 {
-		return float64(nums2[0])
-	}
-
-	combined := CombineArrays(nums1, nums2)
-	log.Printf("combined %v", combined)
-	return FindMedian(combined)
+	return float64(sorted[int(math.Floor(float64(length)/2))])
 }
 
-func CombineArrays(nums1 []int, nums2 []int) []int {
+// MergeSort algorithm
+//
+// (1) If it is only one element in the list it is already sorted, return.
+// (2) Divide the list recusively into two halves until it cannot be divided anymore.
+// (3) Merge the smaller lists into new list in sorted order.
+//
+// Source: https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.htm
+func MergeSort(input []int) []int {
+	length := len(input)
+	if length == 1 {
+		return input
+	}
+
+	midpoint := length / 2
+
+	left := input[:midpoint]
+	right := input[midpoint:length]
+
+	left = MergeSort(left)
+	right = MergeSort(right)
+
+	return Merge(left, right)
+}
+
+func Merge(left, right []int) []int {
 	output := []int{}
-	output = append(output, nums1...)
-	output = append(output, nums2...)
 
-	changed := true
-	for changed {
-		index := 0
-		changed = false
-
-		for index < len(output)-1 {
-			log.Printf("index=%d", index)
-			current := output[index]
-			next := output[index+1]
-			log.Printf("next=%d, current=%d", next, current)
-			if next < current {
-				log.Println("--- swapping")
-				output[index] = next
-				output[index+1] = current
-				changed = true
-			}
-			index++
+	for len(left) > 0 && len(right) > 0 {
+		if left[0] > right[0] {
+			output = append(output, right[0])
+			right = right[1:]
+		} else {
+			output = append(output, left[0])
+			left = left[1:]
 		}
+	}
+
+	for len(left) > 0 {
+		output = append(output, left[0])
+		left = left[1:]
+	}
+
+	for len(right) > 0 {
+		output = append(output, right[0])
+		right = right[1:]
 	}
 
 	return output
-}
-
-func FindMedian(nums []int) float64 {
-	length := len(nums)
-	if length > 0 {
-		if length%2 == 0 {
-			min := (length / 2) - 1
-			max := (length / 2)
-
-			return (float64(nums[min]) + float64(nums[max])) / 2
-		} else {
-			index := int(math.Ceil(float64(length)/2.0)) - 1
-			return float64(nums[index])
-		}
-	}
-
-	return 0.0
 }
