@@ -63,7 +63,7 @@ func (ni *NumberInput) Parse() error {
 	// 	// woo!
 	// }
 
-	err := ni.digits()
+	// err := ni.digits()
 
 	return nil
 }
