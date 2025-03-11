@@ -3,7 +3,7 @@ package lc4medianoftwosortedarrays_test
 import (
 	"testing"
 
-	lc4 "github.com/JoshuaCrocker/leetcode/lc4-median-of-two-sorted-arrays"
+	lc4 "github.com/JoshuaCrocker/leetcode/lc0004-median-of-two-sorted-arrays"
 )
 
 // Example 1:

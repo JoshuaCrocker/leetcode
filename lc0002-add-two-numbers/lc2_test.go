@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	lc2 "github.com/JoshuaCrocker/leetcode/lc2-add-two-numbers"
+	lc2 "github.com/JoshuaCrocker/leetcode/lc0002-add-two-numbers"
 )
 
 // TestCreateLinkedList

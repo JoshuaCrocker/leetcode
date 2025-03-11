@@ -3,7 +3,7 @@ package lc7reverseinteger_test
 import (
 	"testing"
 
-	lc7 "github.com/JoshuaCrocker/leetcode/lc7-reverse-integer"
+	lc7 "github.com/JoshuaCrocker/leetcode/lc0007-reverse-integer"
 )
 
 // Input: x = 123

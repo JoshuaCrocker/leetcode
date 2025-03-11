@@ -3,7 +3,7 @@ package lc13romantointeger_test
 import (
 	"testing"
 
-	lc13romantointeger "github.com/JoshuaCrocker/leetcode/lc13-roman-to-integer"
+	lc13romantointeger "github.com/JoshuaCrocker/leetcode/lc0013-roman-to-integer"
 )
 
 // Example 1:

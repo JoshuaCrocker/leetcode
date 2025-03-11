@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	lc1 "github.com/JoshuaCrocker/leetcode/lc1-two-sum"
+	lc1 "github.com/JoshuaCrocker/leetcode/lc0001-two-sum"
 )
 
 // TestTwoSumExample1
