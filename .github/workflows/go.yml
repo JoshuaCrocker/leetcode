@@ -29,9 +29,6 @@ jobs:
       uses: actions/setup-go@v5
       with:
         go-version-file: ./go.mod
-    
-    - name: Install go-junit-report
-      run: go get -u github.com/jstemmer/go-junit-report
 
     - name: Build
       run: go build -v ./...
@@ -42,7 +39,7 @@ jobs:
     #     time: '15s'
 
     - name: Test
-      run: go test -v ./... | go-junit-report > report.xml
+      run: go test -v ./... | go tool go-junit-report > report.xml
 
     - name: Test Report
       uses: dorny/test-reporter@v1
