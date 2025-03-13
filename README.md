@@ -11,4 +11,6 @@ Go repository for LeetCode challenges.
 | 7  | Reverse Integer             | Complete |
 | 8  | String to Integer           | Complete |
 | 13 | Roman to Integer            | Complete |
+| 27 | Remove Element              | Complete |
+| 88 | Merge Sorted Array          | Complete |
 
